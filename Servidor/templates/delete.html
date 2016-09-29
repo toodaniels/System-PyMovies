@@ -1,0 +1,43 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+  <div class="small-12 medium-8 large-8  grid-content" align="center">
+    <div class="card">
+      <div class="card-divider">
+        <strong>Add+ Movie</strong>
+      </div>
+      <div class="card-section" id="conexiones" align="left">
+      <form>
+        <label>
+          <strong>ID</strong>
+          <span class="inline-label">
+            <input type="search" placeholder="Search" id="id">
+          </span>
+        </label>
+          
+        <div align="right">
+          <a href="#" class="button success" id="delete">Delete</a>
+        </div>
+        
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 medium-4 large-4  grid-content" align="center">
+    <div class="card">
+      <div class="card-divider">
+        <strong>Results</strong>
+      </div>
+      <div class="card-section">
+        <div class=" grid-content" id="result">
+        </div>
+          
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}
+
+         
+       
+ 

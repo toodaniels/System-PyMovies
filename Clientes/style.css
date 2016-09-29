@@ -1,0 +1,28 @@
+QMainWindow#window {background-color: rgb(255,255,255);}
+
+QPushButton{
+    font-size: 14px;
+    color: white;
+    background-color: #79BD43;
+    border-radius: 50px 50px 50px 50px;
+
+}
+QLabel{
+	font-size: 20px;
+	color: #79BD43;
+}
+QLabel#title{
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	
+}
+QTableWidgetItem{
+	font-size: 14px;
+}
+QLabel#logo{
+	background-image: url("/home/deadpool/Descargas/b77efb46b07777233144ca9b5370abee.png");
+	background-repeat: no-repeat;
+}
+
+QLineEdit#line_edit {border: 2px solid #3232C0;}

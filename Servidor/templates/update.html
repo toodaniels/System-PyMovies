@@ -1,0 +1,83 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+  <div class="small-12 medium-8 large-8  grid-content" align="center">
+    <div class="card">
+      <div class="card-divider">
+        <strong>Update Movies</strong>
+      </div>
+      <div class="card-section" id="conexiones" align="left">
+      <form>
+        <div class="grid-block">
+          <div class="grid-content">
+            <label>
+              <strong>ID</strong>
+              <span class="inline-label">
+                <input type="search" placeholder="Search" id="id">
+                <a href="#" class="button success" id="search_up">Search</a>
+              </span>
+            </label>
+          </div>
+        </div>
+        <label>
+          <strong> Title</strong>
+          <span class="inline-label">
+          <input placeholder="Title" type="search" id="title" >
+          </span>
+        </label>
+        <label>
+          <strong> Director</strong>
+          <span class="inline-label">
+          <input placeholder="Director" type="search" id="director" >
+          </span>
+        </label>
+        <label>
+          <strong> Genero</strong>
+          <span class="inline-label">
+          <input placeholder="Genero" type="search" id = "genero" >
+          </span>
+        </label>
+        <label>
+          <strong> Compra</strong>
+          <span class="inline-label">
+          <input placeholder="Compra" type="search" id = "compra" >
+          </span>
+        </label>
+        <label>
+          <strong> Venta</strong>
+          <span class="inline-label">
+          <input placeholder="Compra" type="search" id = "venta" >
+          </span>
+        </label>
+        <label>
+          <strong> Stock</strong>
+          <span class="inline-label">
+          <input placeholder="Compra" type="search" id = "stock" >
+          </span>
+        </label>
+        <div align="right">
+          <a href="#" class="button success" id="update">Update</a>
+        </div>
+        
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 medium-4 large-4  grid-content" align="center">
+    <div class="card">
+      <div class="card-divider">
+        <strong>Results</strong>
+      </div>
+      <div class="card-section">
+        <div class=" grid-content" id="result">
+        </div>
+          
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}
+
+         
+       
+ 

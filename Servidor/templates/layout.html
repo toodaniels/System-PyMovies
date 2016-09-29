@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" ng-app="application">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+    <title>PyMovies</title>
+    <link href="{{ url_for('static', filename='assets/css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/foundation.min.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='assets/js/jquery-1.12.3.min.js') }}" ></script>
+    <style>
+    .scroll-section {overflow-x: scroll;}
+    </style>
+    
+  
+  </head>
+  <body>
+
+    <div class="grid-frame vertical">
+      <div class="dark shrink title-bar">
+        <div class="center title">PyMovies</div>
+        <span class="left">
+          <a zf-open="projects">
+            <img src="{{ url_for('static', filename='img/b77efb46b07777233144ca9b5370abee.png') }}" width="30" height="30">
+          </a>
+        </span>
+        <span class="right">
+          <a href="/search">
+          Search
+          </a>
+        </span>
+        
+    </div>
+
+      <div class="grid-content shrink collapse" align="center">
+       <!--  <ul class="primary icon-left menu-bar ng-scope" > -->
+       <ul class="primary menu-bar" >
+        
+        <li>
+            <a href="/add">
+           
+              <strong>
+                Add+
+              </strong>
+            </a>
+        </li>
+        <li>
+            <a href="/update">
+            
+              <strong>
+                Update
+              </strong>
+            </a>
+        </li>
+        <li>
+            <a href="/delete">
+            
+              <strong>
+                Delete
+              </strong>
+            </a>
+        </li>
+        </ul>
+      </div>
+
+      <div class="grid-block scroll-section" >
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <zf-panel id="projects" position="top">
+      <a href="#" class="close-button" zf-close >&times;</a>
+      <br><br>
+      <ul class="menu-bar vertical">
+        <li>
+          <a href="#">
+            <img src="http://placehold.it/50x50">
+            <span class="block-list-label">Aldana Yañez Isai Suriel  &#x2730;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="http://placehold.it/50x50">
+            <span class="block-list-label">Lopez Gil Yolanda Arisbey   &#x2730;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="http://placehold.it/50x50">
+            <span class="block-list-label">Torres Estrada Daniel  &#x2730;</span>
+          </a>
+        </li>
+      </ul>
+    </zf-panel>
+    
+
+  </body>
+  <script src="{{ url_for('static', filename='assets/js/app.js') }}" ></script>
+  <script src="{{ url_for('static', filename='assets/js/routes.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/angular.js') }}" ></script>
+  <script src="{{ url_for('static', filename='assets/js/func.js') }}" ></script>
+  
+</html>
