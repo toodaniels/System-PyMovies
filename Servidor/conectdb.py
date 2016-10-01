@@ -1,28 +1,28 @@
-import postgresql
+import postgresql #importo el modulo postgresql
 
 
-class pelicula(object):
+class pelicula(object): #creo clase pelicula
 		"""Clase de pelicula en la BD"""
-		def __init__(self):
+		def __init__(self):#Constructor creo la conexion a la base de datos
 			query = ('pq://%s:%d@%s:%i/%s'%("user",pass,"host",port,"Database"))
 			print(query)
-			self.db =postgresql.open(query)
+			self.db =postgresql.open(query) #Conexión
 
-		def selectall(self):
+		def selectall(self): # Funcion para mostrar todos los registros
 			self.lista = self.db.prepare("select * from pelicula ORDER BY id ASC")
 
-		def select(self, query):
+		def select(self, query): # Funcion ejecuta la busqueda que se le asigna por el servidor 
 			self.lista = self.db.prepare(query + " ORDER BY id ASC")
 
-		def insert(self,titulo,director,genero,compra,venta,stock):
+		def insert(self,titulo,director,genero,compra,venta,stock): #Inserta en la base de datos 
 			mkpeli=self.db.prepare("insert into pelicula(titulo,director,genero,compra,venta,stock) values ($1,$2,$3,$4,$5,$6)")
 			mk = mkpeli(titulo,director,genero,compra,venta,stock)
 
-		def update(self,id,titulo,director,genero,compra,venta,stock):
+		def update(self,id,titulo,director,genero,compra,venta,stock): #Actualiza el regustro segun el id 
 			uppeli = self.db.prepare("update pelicula set titulo=$2,director=$3,genero=$4,compra=$5,venta=$6,stock=$7 where id = $1 or titulo = $2")
 			up = uppeli(id,titulo,director,genero,compra,venta,stock)
 
-		def delete(self,id):
+		def delete(self,id): #Elimina un registro segun su id  
 			rmpeli =self.db.prepare("delete from pelicula where id = $1 ")
 			rm = rmpeli(id)
 			
