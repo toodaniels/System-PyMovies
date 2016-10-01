@@ -4,7 +4,7 @@ import postgresql
 class pelicula(object):
 		"""Clase de pelicula en la BD"""
 		def __init__(self):
-			query = ('pq://%s:%d@%s:%i/%s'%("postgres",200388,"localhost",5432,"PyMovies"))
+			query = ('pq://%s:%d@%s:%i/%s'%("user",pass,"host",port,"Database"))
 			print(query)
 			self.db =postgresql.open(query)
 
