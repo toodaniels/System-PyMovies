@@ -4,27 +4,29 @@ from conectdb import pelicula # importo la clase pelicula del archivo conectdb
 app = Flask(__name__ , static_url_path='/static') # Agrego la dirección que sera estatica 
 
 pel = pelicula() #Creo un objeto tipo pelicula
-
+"""--------Estas funciones son solo del menú así que repsonden con archivos html"""
+"""http://localhost:3000/"""
 @app.route("/") # Si desde el navegador acceden a la dirección "/" es decir http://localhost:3000/ 
 def index(list=None): #se ejecuta esta funcion
 		return render_template('index.html') #muesta el archivo 'index.html' de la carpeta templates
-
+"""http://localhost:3000/search"""
 @app.route("/search") # Si desde el navegador acceden a la dirección "/search" es decir http://localhost:3000/search 
 def search(list=None): #Se ejecuta esta función
 		return render_template('search.html')
-	
+"""http://localhost:3000/update"""	
 @app.route("/update")# Si desde el navegador acceden a la dirección "/update" es decir http://localhost:3000/update 
 def update(list=None):# se ejecuta esta función
 		return render_template('update.html')
-	
+"""http://localhost:3000/add"""	
 @app.route("/add")# Si desde el navegador acceden a la dirección "/add" es decir http://localhost:3000/add 
 def add(list=None):# se ejecuta esta función
 		return render_template('add.html')
-	
+"""http://localhost:3000/delete"""	
 @app.route("/delete")# Si desde el navegador acceden a la dirección "/delete" es decir http://localhost:3000/delete 
 def delete(list=None):#se ejecuta esta función
 		return render_template('delete.html')
-
+"""--------Estas funciones son para recibir datos con JQuery de parte del cliente y hacer todo mas dinamico"""
+"""http://localhost:3000/select"""
 @app.route("/select" , methods=["GET","POST"]) # Puede acceder con ambos metods GET y POST
 def selectpel(): #se ejecutaesta funcion 
 	id =str(request.args.get('id')) # Guardo los argumentos o parametro que llegan por medio de esos metodos 
@@ -64,6 +66,7 @@ def selectpel(): #se ejecutaesta funcion
 		resp.append(tupla)#las tuplas encontradas 
 	return jsonify(resp), 200 # envio el diccionario como tipo json con elcodigo 200 que es el cdigo para respuestas correctas
 
+"""http://localhost:3000/insert_movie?id=5&titulo=avengers&director=dani&genero=comics  EJEMPLO GET tambien se puede con post"""
 @app.route("/insert_movie", methods=["GET","POST"]) #Pueden acceder con ambos metodos GET y POST
 def insert_movie(): #Se ejecuta esta función
 	status = True # Variable booleana que utilizo para saber si ocurrio un error
@@ -78,7 +81,7 @@ def insert_movie(): #Se ejecuta esta función
 	except Exception as e:
 		status = False
 	return jsonify({'status': status}), 200
-	
+"""http://localhost:3000/update_movie?id=5&titulo=avengers&director=dani&genero=comics  EJEMPLO GET tambien se puede con post"""	
 @app.route("/update_movie", methods=["GET","POST"])  #Pueden acceder con ambos metodos GET y POST
 def update_movie(): #ejecuta esta funcion
 	status = True # Me sirve para saber si en el transcurso de la ejecucion ocurre agun erro
@@ -95,7 +98,7 @@ def update_movie(): #ejecuta esta funcion
 		status = False #cambia el status
 		raise e
 	return jsonify({'status': status}), 200 # envia en forma de json para que el clientesepa si la accion se realizo correctamente
-
+"""http://localhost:3000/delete_movie?id=5  EJEMPLO GET tambien se puede con post"""
 @app.route("/delete_movie", methods=["GET","POST"])  #Pueden acceder con ambos metodos GET y POST
 def delete_movie():#se ejecuta esta funcion
 	status = True #para saber si ocurre algun error
@@ -107,6 +110,8 @@ def delete_movie():#se ejecuta esta funcion
 		raise e
 	return jsonify({'status': status}), 200 #envia el status en un tipo json para que el cliente lo interprete 
 
+
+"""http://localhost:3000/get_my_ip"""
 @app.route("/get_my_ip", methods=["GET"]) #solo sirve para conocer la ip de quien accede al sitio
 def get_my_ip(): # se ejecuta esta funcion 
 	print (str(request.args.get('hostname'))+" Se conectó "+request.remote_addr)
