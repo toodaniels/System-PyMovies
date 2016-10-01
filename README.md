@@ -12,4 +12,12 @@ create table pelicula (
   primary key(id)
 );
 
+Modulos de Python 
+
+Servidor 
+  flask
+  postgresql
+Cliente 
+  pyqt5
+
 Primero abrir y revisar la dirección en el navegador http://localhost:3000/
